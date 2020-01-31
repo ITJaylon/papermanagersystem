@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paper.mapper.DistributeMapper">
+	    
+	    
+	    <select id="getDistribute" resultType="Distribute">
+	    	select * from dbo.distribute
+	    </select>   
+	    
+	     <select id="getDistributeByDistributeId" parameterType="int" resultType="Distribute">
+	    	select * from dbo.distribute where distributeid=#{distributeId}
+	    </select>
+	    
+	   <update id="updateDistribute" parameterType="Distribute">
+	    	update dbo.Distribute set distributeReviewerId=#{distributeReviewerId},distributeManagerId=#{distributeManagerId} where distributeId=#{distributeId}
+	    </update>
+	    
+	    <insert id="insertDistribute" parameterType="Distribute">
+	    	insert into dbo.distribute (distributeArticleId,distributeReviewerId,distributeManagerId) values (#{distributeArticleId},#{distributeReviewerId},#{distributeManagerId})
+	    </insert>
+	    
+	</mapper>

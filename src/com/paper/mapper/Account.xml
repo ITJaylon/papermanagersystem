@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paper.mapper.AccountMapper">
+	    
+	    
+	    <select id="getAccountByAccountWriterId" parameterType="string" resultType="Account">
+	    	select * from dbo.account where accountwriterId=#{accountWriterId}
+	    </select>   
+	    
+	    
+	     <select id="getAccountByAccountId" parameterType="string" resultType="Account">
+	    	select * from dbo.account where accountId=#{accountId}
+	    </select> 
+	    <update id="updateAccount" parameterType="Account">
+	    	update account set accountbalance=#{accountBalance} where accountId=#{accountId}
+	    </update> 
+	    
+	    
+	</mapper>

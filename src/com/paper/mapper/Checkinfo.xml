@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paper.mapper.CheckinfoMapper">
+	    
+	    
+	     <select id="getCheckInfoById" parameterType="int" resultType="Checkinfo">
+	    	select * from dbo.checkinfo where checkInfoId=#{checkInfoId}
+	    </select> 
+	    
+	    <select id="getCheckInfoByWriterId" parameterType="string" resultType="Checkinfo">
+	    	select * from dbo.checkinfo where writerId=#{writerId}
+	    </select>  
+	    
+	    <select id="getCheckInfoByReviewerId" parameterType="string" resultType="Checkinfo">
+	    	select * from dbo.checkinfo where ReviewerId=#{reviewerId}
+	    </select>
+	     
+	     <select id="getCheckInfoByManagerId" parameterType="string" resultType="Checkinfo">
+	    	select * from dbo.checkinfo where managerId=#{managerId} and firstcheckstatus=1
+	    </select>   
+	    
+	    
+	    <select id="getCheckInfo"  resultType="Checkinfo">
+	    	select * from dbo.checkinfo 
+	    </select>
+	    
+	    <insert id="insertCheckInfo" parameterType="Checkinfo">
+	    	insert into dbo.Checkinfo (articleId,reviewerId,managerId,writerId) values (#{articleId},#{reviewerId},#{managerId},#{writerId})
+	    </insert>
+	    
+	    <update id="updateCheckInfo" parameterType="Checkinfo">
+	    	update dbo.checkinfo set firstcheckstatus=#{firstCheckStatus},secondcheckstatus=#{secondCheckStatus} where checkinfoid=#{checkInfoId}
+	    </update> 
+	    
+	</mapper>

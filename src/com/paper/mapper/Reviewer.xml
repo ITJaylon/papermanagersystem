@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.paper.mapper.ReviewerMapper">
+	    
+	    
+	    <select id="getReviewerByReviewerId" parameterType="string" resultType="Reviewer">
+	    	select * from dbo.reviewer where Reviewerid=#{reviewerId}
+	    </select>   
+	    
+	    
+	    <select id="getAllReviewer"  resultType="Reviewer">
+	    	select * from dbo.reviewer 
+	    </select> 
+	    
+	    <insert id="insertReviewer" parameterType="Reviewer">
+	    	insert into dbo.reviewer values(#{reviewerId},#{reviewerName},#{reviewerPasswd},#{reviewerPhone},#{reviewerType})
+	    </insert> 
+	    
+	    <delete id="deleteReviewerByReviewerId" parameterType="string">
+	    	delete from dbo.reviewer where reviewerId=#{reviewerId}
+	    </delete>
+	    <update id="updateReviewer" parameterType="Reviewer">
+	    	update dbo.Reviewer set reviewername=#{reviewerName},reviewerpasswd=#{reviewerPasswd},reviewerphone=#{reviewerPhone},reviewerType=#{reviewerType} where reviewerId=#{reviewerId}
+	    </update>
+	    
+	    
+	</mapper>

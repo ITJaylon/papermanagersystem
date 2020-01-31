@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paper.mapper.ArticleMapper">
+	    
+	    
+	    <select id="getAllArticle"  resultType="Article">
+	    	select * from dbo.Article 
+	    </select> 
+	    
+	    <select id="getArticleByArticleWriterId" parameterType="string" resultType="Article">
+	    	select * from dbo.Article where articlewriterid=#{articleWriterId}
+	    </select>   
+	    
+	    <select id="getArticleByArticleId" parameterType="string" resultType="Article">
+	    	select * from dbo.Article where articleid=#{articleId}
+	    </select>
+	    
+	    <update id="updateArticle" parameterType="Article">
+	    	update dbo.Article set articleCheck=#{articleCheck},articlePay=#{articlePay} where articleId=#{articleId}
+	    </update> 
+	    
+	    <insert id="insertArticle" parameterType="Article">
+	    	insert into dbo.Article (articleId,articleTitle,articleType,articleWriterId,articleCheck,articleText) values (#{articleId},#{articleTitle},#{articleType},#{articleWriterId},#{articleCheck},#{articleText})
+	    </insert>
+	    
+	</mapper>

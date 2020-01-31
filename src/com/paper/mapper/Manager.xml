@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paper.mapper.ManagerMapper">
+	    
+	    
+	    <select id="getManagerByManagerId" parameterType="string" resultType="Manager">
+	    	select * from dbo.Manager where Managerid=#{managerId}
+	    </select>   
+	    
+	    
+	     <select id="getAllManager"  resultType="Manager">
+	    	select * from dbo.Manager 
+	    </select>   
+	    <!-- <update id="updateWriter" parameterType="Writer">
+	    	update dbo.writer set writername=#{writerName},writerpasswd=#{writerPasswd},writerphone=#{writerPhone},writeremail=#{writerEmail} where writerid=#{writerId}
+	    </update> -->
+	    
+	    
+	</mapper>

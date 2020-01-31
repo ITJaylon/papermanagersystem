@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.paper.mapper.WriterMapper">
+	    <insert id="insertWriter" parameterType="Writer" >
+	        insert into dbo.writer(writerid,writername,writerpasswd,writerphone,writeremail) values (#{writerId},#{writerName},#{writerPasswd},#{writerPhone},#{writerEmail})    
+	    </insert>
+	    
+	    <select id="getWriterByWriterId" parameterType="string" resultType="Writer">
+	    	select * from dbo.writer where writerid=#{writerId}
+	    </select>   
+	    
+	    <update id="updateWriter" parameterType="Writer">
+	    	update dbo.writer set writername=#{writerName},writerpasswd=#{writerPasswd},writerphone=#{writerPhone},writeremail=#{writerEmail} where writerid=#{writerId}
+	    </update>
+	    
+	</mapper>
